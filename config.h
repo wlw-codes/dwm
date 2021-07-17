@@ -13,6 +13,7 @@ static const char col_gray2[]       = "#444444"; // inactive window border colou
 static const char col_gray3[]       = "#bbbbbb"; // font colour
 static const char col_gray4[]       = "#eeeeee"; // current tag/window font colour
 static const char col_cyan[]        = "#d33948"; // top bar second colour and active window border colour
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -40,9 +41,9 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ "TIL",      tile },    /* first entry is default */
+	{ "FLT",      NULL },    /* no layout function means floating behavior */
+	{ "MON",      monocle },
 };
 
 /* key definitions */
