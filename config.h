@@ -12,7 +12,7 @@ static const char col_gray1[]       = "#222222"; // background colour
 static const char col_gray2[]       = "#444444"; // inactive window border colour
 static const char col_gray3[]       = "#bbbbbb"; // font colour
 static const char col_gray4[]       = "#eeeeee"; // current tag/window font colour
-static const char col_cyan[]        = "#d33948"; // top bar second colour and active window border colour
+static const char col_cyan[]        = "#005577"; // top bar second colour and active window border colour
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -36,7 +36,7 @@ static const Rule rules[] = {
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
@@ -66,6 +66,11 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,             		XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,			XK_w,	   spawn,	   SHCMD("brave") },
+	{ MODKEY,			XK_BackSpace, spawn,	   SHCMD("power-off_menu") },
+	{ MODKEY,			XK_p,	   spawn,	   SHCMD("asus_power_mode_menu") },
+	{ MODKEY,			XK_Up,	   spawn,          SHCMD("keyboard_backlight_select") },
+	{ MODKEY|ShiftMask,		XK_l,      spawn,	   SHCMD("slock") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
