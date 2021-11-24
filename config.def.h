@@ -1,3 +1,5 @@
+#include <X11/XF86keysym.h>
+
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
@@ -6,13 +8,13 @@ static const unsigned int gappx     = 10;	/* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10", "fontawesome:size=10" };
-static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#222222"; // background colour
+static const char *fonts[]          = { "hack:size=12", "fontawesome:size=12" };
+static const char dmenufont[]       = "hack:size=12";
+static const char col_gray1[]       = "#282828"; // background colour
 static const char col_gray2[]       = "#444444"; // inactive window border colour
-static const char col_gray3[]       = "#bbbbbb"; // font colour
-static const char col_gray4[]       = "#eeeeee"; // current tag/window font colour
-static const char col_cyan[]        = "#005577"; // top bar second colour and active window border colour
+static const char col_gray3[]       = "#FCE1BD"; // font colour
+static const char col_gray4[]       = "#FFEDD6"; // current tag/window font colour
+static const char col_cyan[]        = "#2a5f82"; // top bar second colour and active window border colour
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -59,8 +61,13 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL }; // set dmenu settings
-static const char *termcmd[]  = { "st", NULL };	// set terminal
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };	// set dmenu settings
+static const char *termcmd[] = { "st", NULL }; // set terminal
+static const char *monbrightup[] = { "light", "-A", "5", NULL }; // monitor brightness up
+static const char *monbrightdown[] = { "light", "-D", "5", NULL }; // monitor brightness down
+static const char *upvol[] = { "pactl", "set-sink-volume", "0", "+5%",     NULL }; // vol up
+static const char *downvol[] = { "pactl", "set-sink-volume", "0", "-5%",     NULL }; // vol down
+static const char *mutevol[] = { "pactl", "set-sink-mute",   "0", "toggle",  NULL }; // vol off
 
 static Key keys[] = {
 	/* modifier                     key        	function        argument				explanation */
@@ -72,11 +79,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_e,	   	spawn,		SHCMD("element-desktop") },		// Run Element
 	{ MODKEY,			XK_e,	   	spawn,		SHCMD("st lf") },			// Run lf
 	{ MODKEY|ShiftMask,		XK_l,      	spawn,		SHCMD("slock") },			// Lock sceen
+	{ MODKEY,			XK_n,		spawn,		SHCMD("networkmanager_dmenu") },	// Run dmenu network mngr
 
 	// Scripts
 	{ MODKEY,			XK_BackSpace,	spawn,		SHCMD("power-off_menu") },		// Select a power off option
-	{ MODKEY|ShiftMask,		XK_p,	   	spawn,		SHCMD("asus_power_mode_menu") },	// Select a power mode
-	{ MODKEY,			XK_Up,	   	spawn,		SHCMD("keyboard_backlight_select") },	// Select keyboard backlight level
 		
 	// Layouts
 	{ MODKEY,                       XK_t,      	setlayout,	{.v = &layouts[0]} },			// Tiled layout
@@ -84,6 +90,13 @@ static Key keys[] = {
 	{ MODKEY,                       XK_m,      	setlayout,	{.v = &layouts[2]} },			// Monocle layout
 	{ MODKEY,                       XK_space,  	setlayout,	{0} },					// Switch to previous layout
 	
+	// Hardware control
+	{ 0,                       	XF86XK_AudioLowerVolume, spawn, {.v = downvol } },			// Decrease volume
+	{ 0,                       	XF86XK_AudioMute, spawn, {.v = mutevol } },				// Mute volume
+	{ 0,                       	XF86XK_AudioRaiseVolume, spawn, {.v = upvol } },			// Increase volume
+	{ 0,				XF86XK_MonBrightnessUp, spawn, {.v = monbrightup } },
+	{ 0,				XF86XK_MonBrightnessDown, spawn, {.v = monbrightdown } },
+
 	// Window management
 	{ MODKEY|ShiftMask,             XK_space,  	togglefloating,	{0} },					// Toggle floating window
 	{ MODKEY,                       XK_0,      	view,		{.ui = ~0 } },				// View all open windows
