@@ -3,3 +3,6 @@
 *.rej
 *.diff
 
+# etc
+*.o
+dwm
