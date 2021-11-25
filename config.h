@@ -13,8 +13,8 @@ static const char dmenufont[]       = "hack:size=12";
 static const char col_gray1[]       = "#282828"; // background colour
 static const char col_gray2[]       = "#444444"; // inactive window border colour
 static const char col_gray3[]       = "#FCE1BD"; // font colour
-static const char col_gray4[]       = "#FFEDD6"; // current tag/window font colour
-static const char col_cyan[]        = "#2a5f82"; // top bar second colour and active window border colour
+static const char col_gray4[]       = "#7aeb9a"; // current tag/window font colour
+static const char col_cyan[]        = "#282828"; // top bar second colour and active window border colour
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -63,8 +63,9 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };	// set dmenu settings
 static const char *termcmd[] = { "st", NULL }; // set terminal
-static const char *monbrightup[] = { "brightness_control", "add", "5", NULL }; // monitor brightness up
-static const char *monbrightdown[] = { "brigtness_control", "del", "5", NULL }; // monitor brightness down
+static const char *monoff[] = { "xset", "dpms", "force", "off", NULL }; // monitor backlight off
+static const char *monbrightup[] = { "light", "-A", "5", NULL }; // monitor brightness up
+static const char *monbrightdown[] = { "light", "-U", "5", NULL }; // monitor brightness down
 static const char *upvol[] = { "pactl", "set-sink-volume", "0", "+5%",     NULL }; // vol up
 static const char *downvol[] = { "pactl", "set-sink-volume", "0", "-5%",     NULL }; // vol down
 static const char *mutevol[] = { "pactl", "set-sink-mute",   "0", "toggle",  NULL }; // vol off
@@ -94,8 +95,9 @@ static Key keys[] = {
 	{ 0,                       	XF86XK_AudioLowerVolume, spawn, {.v = downvol } },			// Decrease volume
 	{ 0,                       	XF86XK_AudioMute, spawn, {.v = mutevol } },				// Mute volume
 	{ 0,                       	XF86XK_AudioRaiseVolume, spawn, {.v = upvol } },			// Increase volume
-	{ 0,				XF86XK_MonBrightnessUp, spawn, {.v = monbrightup } },
-	{ 0,				XF86XK_MonBrightnessDown, spawn, {.v = monbrightdown } },
+	{ 0,				XF86XK_MonBrightnessUp, spawn, {.v = monbrightup } },			// Increase backlight
+	{ 0,				XF86XK_MonBrightnessDown, spawn, {.v = monbrightdown } },		// Decrease backlight
+	{ 0,				XF86XK_ScreenSaver, spawn, {.v = monoff } },				// Turn backlight off
 
 	// Window management
 	{ MODKEY|ShiftMask,             XK_space,  	togglefloating,	{0} },					// Toggle floating window
