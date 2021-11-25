@@ -12,9 +12,9 @@ static const char *fonts[]          = { "hack:size=12", "fontawesome:size=12" };
 static const char dmenufont[]       = "hack:size=12";
 static const char col_gray1[]       = "#282828"; // background colour
 static const char col_gray2[]       = "#444444"; // inactive window border colour
-static const char col_gray3[]       = "#fce1bd"; // font colour
-static const char col_gray4[]       = "#7aeb97"; // current tag/window font colour
-static const char col_cyan[]        = "#282828"; // top bar second colour and active window border colour
+static const char col_gray3[]       = "#FCE1BD"; // font colour
+static const char col_gray4[]       = "#FFEDD6"; // current tag/window font colour
+static const char col_cyan[]        = "#2a5f82"; // top bar second colour and active window border colour
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -63,8 +63,8 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };	// set dmenu settings
 static const char *termcmd[] = { "st", NULL }; // set terminal
-static const char *monbrightup[] = { "light", "-A", "5", NULL }; // monitor brightness up
-static const char *monbrightdown[] = { "light", "-D", "5", NULL }; // monitor brightness down
+static const char *monbrightup[] = { "brightness_control", "add", "5", NULL }; // monitor brightness up
+static const char *monbrightdown[] = { "brigtness_control", "del", "5", NULL }; // monitor brightness down
 static const char *upvol[] = { "pactl", "set-sink-volume", "0", "+5%",     NULL }; // vol up
 static const char *downvol[] = { "pactl", "set-sink-volume", "0", "-5%",     NULL }; // vol down
 static const char *mutevol[] = { "pactl", "set-sink-mute",   "0", "toggle",  NULL }; // vol off
@@ -75,14 +75,11 @@ static Key keys[] = {
 	{ MODKEY,                       XK_d,		spawn,		{.v = dmenucmd } },			// Run dmenu
 	{ MODKEY,             		XK_Return,	spawn,		{.v = termcmd } },			// Run terminal
 	{ MODKEY,			XK_w,		spawn,		SHCMD("brave") },			// Run Brave
-	{ MODKEY|ShiftMask,		XK_w,		spawn,		SHCMD("brave-beta") },			// Run brave-beta
 	{ MODKEY,			XK_p,	   	spawn,		SHCMD("bitwarden-desktop") },		// Run Bitwarden
 	{ MODKEY|ShiftMask,		XK_e,	   	spawn,		SHCMD("element-desktop") },		// Run Element
 	{ MODKEY,			XK_e,	   	spawn,		SHCMD("st lf") },			// Run lf
 	{ MODKEY|ShiftMask,		XK_l,      	spawn,		SHCMD("slock") },			// Lock sceen
 	{ MODKEY,			XK_n,		spawn,		SHCMD("networkmanager_dmenu") },	// Run dmenu network mngr
-	{ MODKEY,			XK_grave,	spawn,		SHCMD("dmoji") },			// Run dmoji script
-	{ MODKEY,			XK_y,		spawn,		SHCMD("ytfzf -fD") },			// Run ytfzf with dmenu
 
 	// Scripts
 	{ MODKEY,			XK_BackSpace,	spawn,		SHCMD("power-off_menu") },		// Select a power off option
