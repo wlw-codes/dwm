@@ -76,6 +76,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_d,		spawn,		{.v = dmenucmd } },			// Run dmenu
 	{ MODKEY,             		XK_Return,	spawn,		{.v = termcmd } },			// Run terminal
 	{ MODKEY,			XK_w,		spawn,		SHCMD("brave") },			// Run Brave
+	{ MODKEY|ShiftMask,		XK_w,		spawn,		SHCMD("brave-beta") },			// Run Brave beta build
 	{ MODKEY,			XK_p,	   	spawn,		SHCMD("bitwarden-desktop") },		// Run Bitwarden
 	{ MODKEY|ShiftMask,		XK_e,	   	spawn,		SHCMD("element-desktop") },		// Run Element
 	{ MODKEY,			XK_e,	   	spawn,		SHCMD("st lf") },			// Run lf
