@@ -85,6 +85,9 @@ static Key keys[] = {
 
 	// Scripts
 	{ MODKEY,			XK_BackSpace,	spawn,		SHCMD("power-off_menu") },		// Select a power off option
+	{ 0,				XK_Print,	spawn,		SHCMD("dscreenshot") },			// Open screenshot menu
+	{ MODKEY,			XK_Print,	spawn,		SHCMD("dmenurecord") },			// Select a record option
+	{ MODKEY|ShiftMask,		XK_Print,	spawn,		SHCMD("dmenurecord kill") },		// Kill recording
 		
 	// Layouts
 	{ MODKEY,                       XK_t,      	setlayout,	{.v = &layouts[0]} },			// Tiled layout
