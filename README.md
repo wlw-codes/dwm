@@ -8,3 +8,4 @@ This is my personal build of [dwm](https://dwm.suckless.org) by the guys over at
 - fixborders to fix translucent borders on st
 - hide vacant tags to only display tags with applications open thereon
 - underlinetags to underline the selected tag
+- taglabels to show master program name in tag label
