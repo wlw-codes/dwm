@@ -12,7 +12,7 @@ static const char *fonts[]          = { "hack:size=12", "fontawesome:size=12" };
 static const char dmenufont[]       = "hack:size=12";
 static const char col_gray1[]       = "#282828"; // background colour
 static const char col_gray2[]       = "#444444"; // inactive window border colour
-static const char col_gray3[]       = "#FCE1BD"; // font colour
+static const char col_gray3[]       = "#ebdbb2"; // font colour
 static const char col_gray4[]       = "#7aeb9a"; // current tag/window font colour
 static const char col_cyan[]        = "#282828"; // top bar second colour and active window border colour
 
