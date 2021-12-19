@@ -14,7 +14,7 @@ static const char col_gray1[]       = "#282828"; // background colour
 static const char col_gray2[]       = "#444444"; // inactive window border colour
 static const char col_gray3[]       = "#ebdbb2"; // font colour
 static const char col_gray4[]       = "#7aeb9a"; // current tag/window font colour
-static const char col_cyan[]        = "#282828"; // top bar second colour and active window border colour
+static const char col_cyan[]        = "#504945"; // top bar second colour and active window border colour
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -84,7 +84,7 @@ static Key keys[] = {
 	// Program launching
 	{ MODKEY,                       XK_d,		spawn,		{.v = dmenucmd } },			// Run dmenu
 	{ MODKEY,             		XK_Return,	spawn,		{.v = termcmd } },			// Run terminal
-	{ MODKEY,			XK_w,		spawn,		SHCMD("brave") },			// Run Brave
+	{ MODKEY,			XK_w,		spawn,		SHCMD("librewolf") },			// Run Librewolf
 	{ MODKEY|ShiftMask,		XK_w,		spawn,		SHCMD("brave-beta") },			// Run Brave beta build
 	{ MODKEY,			XK_p,	   	spawn,		SHCMD("bitwarden-desktop") },		// Run Bitwarden
 	{ MODKEY|ShiftMask,		XK_e,	   	spawn,		SHCMD("element-desktop") },		// Run Element
