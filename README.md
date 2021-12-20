@@ -7,3 +7,4 @@ This is my personal build of [dwm](https://dwm.suckless.org) by the guys over at
 - fullgaps for easy gaps configurable by modifying the gappx int
 - fixborders to fix translucent borders on st
 - status2d for colours in statusbar
+- alwayscenter so that floating windows are always centred
