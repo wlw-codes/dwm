@@ -8,13 +8,13 @@ static const unsigned int gappx     = 10;	/* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "hack:size=12", "fontawesome:size=12" };
-static const char dmenufont[]       = "hack:size=12";
+static const char *fonts[]          = { "Hack:size=12", "Font Awesome 5 Free:style=Solid:pixelsize=12" };
+static const char dmenufont[]       = "Hack:size=12";
 static const char col_gray1[]       = "#282828"; // background colour
 static const char col_gray2[]       = "#444444"; // inactive window border colour
 static const char col_gray3[]       = "#ebdbb2"; // font colour
 static const char col_gray4[]       = "#7aeb9a"; // current tag/window font colour
-static const char col_cyan[]        = "#504945"; // top bar second colour and active window border colour
+static const char col_cyan[]        = "#282828"; // top bar second colour and active window border colour
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -32,7 +32,7 @@ static const int ulineall 		= 0;	/* 1 to show underline on all tags, 0 for just 
 
 static const char ptagf[] = "[%s %s]";	/* format of a tag label */
 static const char etagf[] = "[%s]";	/* format of an empty tag */
-static const int lcaselbl = 0;		/* 1 means make tag label lowercase */	
+static const int lcaselbl = 1;		/* 1 means make tag label lowercase */	
 
 static const Rule rules[] = {
 	/* xprop(1):
