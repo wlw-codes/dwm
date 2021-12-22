@@ -66,7 +66,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };	// set dmenu settings
+static const char *dmenucmd[] = { "dmenu_run", "-l", "20", "-c", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };	// set dmenu settings
 static const char *termcmd[] = { "st", NULL }; // set terminal
 static const char *monoff[] = { "xset", "dpms", "force", "off", NULL }; // monitor backlight off
 static const char *monbrightup[] = { "light", "-A", "5", NULL }; // monitor brightness up
