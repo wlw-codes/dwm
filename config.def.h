@@ -83,7 +83,7 @@ static Key keys[] = {
 	{ MODKEY,			XK_w,		spawn,		SHCMD("librewolf") },			// Run Librewolf
 	{ MODKEY|ShiftMask,		XK_w,		spawn,		SHCMD("brave-beta") },			// Run Brave beta build
 	{ MODKEY,			XK_p,	   	spawn,		SHCMD("bitwarden-desktop") },		// Run Bitwarden
-	{ MODKEY|ShiftMask,		XK_e,	   	spawn,		SHCMD("element-desktop") },		// Run Element
+	{ MODKEY|ShiftMask,		XK_e,	   	spawn,		SHCMD("telegram-desktop") },		// Run Telegram
 	{ MODKEY,			XK_e,	   	spawn,		SHCMD("pcmanfm") },			// Run pcmanfm
 	{ MODKEY|ShiftMask,		XK_l,      	spawn,		SHCMD("slock") },			// Lock sceen
 	{ MODKEY,			XK_n,		spawn,		SHCMD("networkmanager_dmenu") },	// Run dmenu network mngr
