@@ -74,6 +74,7 @@ static const char *monbrightdown[] = { "light", "-U", "5", NULL }; // monitor br
 static const char *upvol[] = { "pactl", "set-sink-volume", "0", "+5%",     NULL }; // vol up
 static const char *downvol[] = { "pactl", "set-sink-volume", "0", "-5%",     NULL }; // vol down
 static const char *mutevol[] = { "pactl", "set-sink-mute",   "0", "toggle",  NULL }; // vol off
+static const char *vimwiki[] = { "st", "-e", "nvim", "/home/will/vimwiki/index.wiki", NULL }; // open vimwiki
 
 static Key keys[] = {
 	/* modifier                     key        	function        argument				explanation */
@@ -87,6 +88,7 @@ static Key keys[] = {
 	{ MODKEY,			XK_e,	   	spawn,		SHCMD("pcmanfm") },			// Run pcmanfm
 	{ MODKEY|ShiftMask,		XK_l,      	spawn,		SHCMD("slock") },			// Lock sceen
 	{ MODKEY,			XK_n,		spawn,		SHCMD("networkmanager_dmenu") },	// Run dmenu network mngr
+	{ MODKEY,			XK_v,		spawn,		{.v = vimwiki } },			// Run vimwiki at index file
 
 	// Scripts
 	{ MODKEY,			XK_BackSpace,	spawn,		SHCMD("power-off_menu") },		// Select a power off option
